@@ -19,7 +19,7 @@ then
 			if [ $d_id = $c_id ]
 			then
 				#echo $c_id,$d_id,$c_tm,$d_offset,$d_range,$d_duration >> result
-				echo $c_tm " " ${d_offset}${d_range} "       " $d_duration >> result
+				echo $c_tm  ${d_offset}${d_range}  $d_duration >> result
 				break
 			fi
 		done
