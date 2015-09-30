@@ -2,6 +2,8 @@
 
 from ConfigParser import ConfigParser
 
+PI = 3.141592653
+
 class ConfigReader:
     def __init__(self, fileName):
         self.config = ConfigParser()
