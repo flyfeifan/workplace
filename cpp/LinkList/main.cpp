@@ -70,9 +70,10 @@ int main(void)
         int d = random() % 1000;
         //int d = i;
         std::cout << "add: " << d << std::endl;
-        addSortDuNode<int>(&head, &tail, d);
+        //addSortDuNode<int>(&head, &tail, d);
+        addDuNode<int>(&head, &tail, d);
     }
-
+    std::cout << "#######################" << std::endl;
     //asc
     DULNODEPTR cur = head;
     while(cur != NULL)
@@ -81,13 +82,17 @@ int main(void)
         cur = cur->Next();
     }
 
+    reverDuNodes<int>(&head, &tail);
+    std::cout << "after nothind: " << std::endl;
+
     //asc
-    DULNODEPTR cur2 = tail;
-    while(cur2 != NULL)
+    cur = head;
+    while(cur != NULL)
     {
-        std::cout << "desc out: " << cur2->GetData() << std::endl;
-        cur2 = cur2->Prev();
+        std::cout << "asc out: " << cur->GetData() << std::endl;
+        cur = cur->Next();
     }
+
 
     return 0;
 }

@@ -105,3 +105,33 @@ void addSortDuNode(DulNode<DATA> **headPtr, DulNode<DATA> **tailPtr, DATA data, 
     return;
 }
 
+template <class DATA>
+void reverDuNodes(DulNode<DATA> **headPtr, DulNode<DATA> **tailPtr)
+{
+    DulNode<DATA> *curr = *headPtr;
+    if( NULL == curr || NULL == curr->m_next || curr == *tailPtr)
+    {
+        //空，或者只有一个节点则不反转。
+        return;
+    }
+
+    //更改指针指向
+    DulNode<DATA> *prev = curr;
+    curr = curr->m_next;
+    do{
+        DulNode<DATA> *next =  curr->m_next;
+        curr->m_next = prev;
+        curr->m_prev = next;
+        prev = curr;
+        curr = next;
+    }while(curr != NULL);
+
+    //更改首尾
+    DulNode<DATA> *head = *headPtr;
+    DulNode<DATA> *tail = *tailPtr;
+    head->m_next = NULL;
+    tail->m_prev = NULL;
+    *headPtr = tail;
+    *tailPtr = head;
+    return;
+}
