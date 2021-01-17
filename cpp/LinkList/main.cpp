@@ -4,25 +4,27 @@
 #include <time.h>
 
 #include "ListNodes.h"
+#include "DuListNodes.h"
 
 
 #define LNODEPTR  Node<int>*
 
+#define DULNODEPTR  DulNode<int>*
+
+
 using namespace std;
 
-
+/*
 int main()
 {
     srandom(time(NULL));
     LNODEPTR head = NULL;
     //无序链表
-    /*
     for (int d = 100; d < 150; d++ )
     {
         //std::cout << "add: " << d << std::endl;
         addNode<int>(&head, d);
     }
-    */
 
     for (int i = 100; i < 150; i++ )
     {
@@ -30,11 +32,6 @@ int main()
         int d = random() % 1000;
         addPostiveNode<int>(&head, d);
     }
-
-
-
-
-
 
     if (NULL == head )
     {
@@ -58,5 +55,39 @@ int main()
     }while(curN != NULL);
 
   
+    return 0;
+}
+*/
+
+int main(void)
+{   
+    srandom(time(NULL));
+    DULNODEPTR head = NULL;
+    DULNODEPTR tail = NULL;
+    for (int i = 100; i < 150; i++)
+    {
+        //std::cout << "add: " << d << std::endl;
+        int d = random() % 1000;
+        //int d = i;
+        std::cout << "add: " << d << std::endl;
+        addSortDuNode<int>(&head, &tail, d);
+    }
+
+    //asc
+    DULNODEPTR cur = head;
+    while(cur != NULL)
+    {
+        std::cout << "asc out: " << cur->GetData() << std::endl;
+        cur = cur->Next();
+    }
+
+    //asc
+    DULNODEPTR cur2 = tail;
+    while(cur2 != NULL)
+    {
+        std::cout << "desc out: " << cur2->GetData() << std::endl;
+        cur2 = cur2->Prev();
+    }
+
     return 0;
 }

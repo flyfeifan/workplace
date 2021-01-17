@@ -113,38 +113,6 @@ void reverSalNode(Node<DATA> **head)
     *head = cur;
     return;
 }
-/*
-template <class DATA>
-class DulNode
-{
-public:
-    DulNode(DATA data, DulNode* prev, DulNode* next)
-    {
-        m_data = data;
-        m_next = next;
-    }
-
-    DulNode* Prev()
-    {
-        return m_prev;
-    }
-
-    DulNode* Next()
-    {
-        return m_next;
-    }
-
-    bool isTail(){
-        return m_next == NULL;
-    }
-
-public:
-    DATA      m_data;
-    DulNode*  m_prev;
-    DulNode*  m_next;
-};
-
-*/
 
 
 
