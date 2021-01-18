@@ -8,7 +8,6 @@
 
 
 #define LNODEPTR  Node<int>*
-
 #define DULNODEPTR  DulNode<int>*
 
 
